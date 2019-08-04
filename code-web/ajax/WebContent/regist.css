@@ -1,0 +1,114 @@
+/* 样式重置 */
+*{
+	/* 将所有元素自带的外边距和内边距重置为0，在这个基础上再去添加样式，可以保证不管在哪一个浏览器，最终的样式都是相同的！*/
+	margin:0px;
+	padding:0px;
+}
+
+/* ------ common ------ */
+#header,#main,#footer{
+	width:1200px;
+	/* 让div在网页中居中显示(即左右外边距自适应) */
+	margin:0px auto;
+}
+
+/* ------ header ------ */
+#header{
+	/*background:pink;*/
+	margin:42px auto;
+	height:72px;
+}
+#header img{/* logo图片 */
+	margin-left:50px;
+	margin-right:33px;
+}
+#header .line{/* 竖线 */
+	border:2px solid #cbcbcb;
+	height:68px;
+	/* 为了让height起作用 */
+	display:inline-block;
+	margin-right:22px;
+}
+#header .wel-login{/* 欢迎注册 */
+	font-size:36px;
+	color:#676767;
+}
+#header img,#header span{ 
+	/* 让选中的元素在垂直方向上对齐 */
+	vertical-align:middle;
+}
+
+
+/* ------ main ------ */
+#main{
+	/*background:yellow;*/
+	border:7px solid #f0f0f0;
+	/* 设置边框宽度,上下为9px, 左右为7px */
+	border-width:9px 7px;
+}
+#main form{/* 表单 */
+	/*background:pink;*/
+	display:inline-block;
+	/* 让当前元素与行内最高元素的顶端对齐 */
+	vertical-align:top;
+	margin-left:110px;
+	width:385px;
+}
+#main form h1{/* 注册 */
+	font-size:26px;
+	font-weight:bold;
+	text-align:center;
+	margin:87px 0px 20px;
+	color:#676767;
+}
+#main form #err-msg{/* 注册失败后的提示信息 */
+	color:#f00;
+	text-align:center;
+	margin-bottom:9px;
+	height:18px;
+	/* display:none; 默认为隐藏, 当注册失败后显示该内容 */
+}
+#main form input{/* 为所有input统一设置样式 */
+	height:49px;
+	width:381px;
+	font-size:20px;
+	color:#999;
+	border:2px solid #ededed;
+	margin-bottom:32px;
+	text-indent:46px;
+}
+#main form input[name='username']{/* 用户名输入框 */
+	background-image:url('imgs/u_ico.jpg');
+	background-repeat:no-repeat;
+	background-position:14px 14px;
+}
+#main form input[name='password']{/* 密码输入框 */
+	background-image:url('imgs/p_ico.jpg');
+	background-repeat:no-repeat;
+	background-position:14px 14px;
+}
+#main form #rem-username input[type='checkbox']{/* 记住用户名复选框 */
+	width:20px;
+	height:20px;
+	margin-left:3px;
+	vertical-align: text-top;
+}
+
+#main form input[type='submit']{/* 注册(提交)按钮 */
+	font-size:20px;
+	color:#fff;
+	height:52px;
+	background:#f00;
+	/* 覆盖上面统一设置的46px的缩进 */
+	text-indent:0px;
+}
+
+/* ------ footer ------ */
+#footer{
+	/*background:green;*/
+	font-size:14px;
+	color:#999;
+	text-align:center;
+	line-height:34px;
+	margin-top:144px;
+}
