@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace一般指定为当前文件的所在包路径+文件名 将来在程序中通过[ namespace + id ]定位到执行哪一条SQL语句 -->
+<mapper namespace="com.tedu.dao.EmpMapper">
+	<sql id="empcols">
+		id,name,job,salary
+	</sql>
+	<!-- 1.查询所有员工信息 resultType指定的是返回值的类型或者返回值是集合,那么resultType就是指定集合中的泛型 -->
+	<select id="findAll" resultType="com.tedu.pojo.Emp">
+		select <include refid="empcols"/>
+		from emp
+	</select>
+	<!-- resultType：返回值类型，简单类型（例如：Integer，String，Emp等） 如果返回集合(List<Emp>)，只需配置集合中的元素类型即可！ 
+		resultMap：复杂对象结构（例如多表关联查询等），后面用到再讲解 -->
+	<!-- 2.修改员工信息 将id为1的员工的职位改为"高级Java开发工程师",salary改为30000 -->
+	<update id="updateById">
+		update emp set job ='高级Java开发工程师',
+		salary = 30000
+		where id = 1
+	</update>
+	<!-- 3.添加员工 -->
+	<update id="addEmp">
+		insert into emp values(null,#{name},#{job},#{salary})
+	</update>
+	<!-- 4.修改指定id员工信息 -->
+	<update id="updateById2">
+		update emp set
+		name=#{name},job=#{job},salary=#{salary}
+		where id=#{id}
+	</update>
+	<!-- 5.根据name查询员工信息 -->
+	<select id="findByName" resultType="com.tedu.pojo.Emp">
+		select id,name,job,salary from emp where name
+		= #{name}
+	</select>
+	<!-- 6.根据id删除员工信息 -->
+	<update id="deleteById">
+		delete from emp where id = #{id}
+	</update>
+	<!-- 7. -->
+	<select id="findAll2" resultType="com.tedu.pojo.Emp">
+		select ${colStr} from emp
+	</select>
+	<!-- 8.通过name模糊查询员工信息 -->
+	<select id="findAll3" resultType="com.tedu.pojo.Emp">
+		select id,name,job,salary  from emp where name
+		like '%${name}%'
+	</select>
+	<!-- 9.查询员工信息,如果name不为null,则根据name模糊查询 如果name为null,则查询所有员工信息 -->
+	<select id="findAll4" resultType="com.tedu.pojo.Emp">
+		select * from emp
+		<if test="name != null">where name like '%${name}%'</if>
+	</select>
+	<!-- 10 -->
+	<select id="findAll5" resultType="com.tedu.pojo.Emp">
+		select * from emp
+		<where>
+			<if test="minSal != null">salary> #{minSal}</if>
+			<if test="maxSal">and
+				salary <![CDATA[<]]>
+				#{maxSal}
+			</if>
+		</where>
+	</select>
+	<!-- 11.修改员工信息,根据传入的值对列进行修改 -->
+	<update id="updateById3">
+		update emp
+		<set>
+			<if test="name != null">
+				name=#{name},
+			</if>
+			<if test="job != null">
+				job=#{job},
+			</if>
+			<if test="name != null">
+				salary=#{salary}
+			</if>
+			where id=#{id}
+		</set>
+	</update>
+	<!-- 12.批量删除操作
+	 * 删除id为2.4,6,8的员工 delete from emp where id in(xxx,xxx);
+	  collection:array表示遍历的是数组
+	   collection:list 表示遍历的是集合
+	    item:id 相当于for循环中的id,是用于接收数组中的每一个元素的变量 -->
+	<update id="delete">
+		delete from emp where id in
+		<foreach collection="array" open="(" close=")" item="id" separator=",">
+			#{id}
+		</foreach>
+	</update>
+</mapper>
+
