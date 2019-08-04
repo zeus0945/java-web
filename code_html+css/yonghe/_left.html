@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<style>
+		body{
+			background:#222D32;
+			/*覆盖body自带的8px的外边距*/
+			margin:0px;
+		}
+		div{/*选中所有div元素*/
+			font-size:22px;
+			height:40px;
+			/*设置行高和div一样高,是为了让其中的文本在垂直方向居中(适用单行文本)*/
+			line-height:40px;
+			letter-spacing:5px;
+			text-indent:18px;
+			border-bottom:1px solid #fff;
+		}
+		div:first-child{
+			border-top:1px solid #fff;
+		}
+		div:hover{/*当鼠标悬停在div上时，div具有如下样式*/
+			background:#797979;
+		}
+		
+		/*a标签内部的文本颜色和下划线需要选中a元素来设置,否则不会生效*/
+		div a{/*选中div内部的所有a元素*/
+			color:#fff;
+			text-decoration:none;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<a href="door_list.html">› 门店管理</a>
+	</div>
+	<div>
+		<a href="">› 订单管理</a>
+	</div>
+</body>
+</html>
+

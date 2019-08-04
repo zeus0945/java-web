@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8"/>
+	<!-- css样式 -->
+	<style>
+		table,td{
+			/* 设置边框 */
+			border:2px solid red;
+			/* 设置边框合并 */
+			border-collapse:collapse;
+		}
+		td{
+			/* 设置单元格边框和内容的距离 */
+			padding:5px;
+		}
+		table{
+			/* 设置表格的宽度
+			width:80%; */
+			/* 设置表格的左右外边距自适应(居中)*/
+			margin-left:auto;
+			margin-right:auto;
+			/* 设置背景颜色 */
+			background:lightgrey;
+		}
+		h1{
+			/* 设置元素内文本的水平排列方式 */
+			text-align:center;
+		}
+		#last-td{/*选中id值为last-td的元素*/
+			text-align:center;
+		}
+	</style>
+</head>
+<body>
+<h1>欢迎注册</h1>
+<form action="#">
+	<table>
+		<tr>
+			<td>用户名:</td>
+			<td><!-- 普通文本输入框 -->
+				<input type="text" placeholder="请输入用户名..." name="username"/>
+			</td>
+		</tr>
+		<tr>
+			<td>密码:</td>
+			<td><!-- 密码输入框 -->
+				<input type="password" name="pwd"/>
+			</td>
+		</tr>
+		<tr>
+			<td>性别:</td>
+			<td>
+				<!--
+				(1)怎么实现单选? 让多个单选框的name值一致即可
+				(2)服务器怎么区分选中的是男还是女?
+				-->
+				<input name="gender" type="radio" value="man"/>男
+				<input name="gender" type="radio" value="woman" checked="checked"/>女
+			</td>
+		</tr>
+		<tr>
+			<td>爱好:</td>
+			<td>
+				<!-- 
+				怎么区别提交的值是篮球、足球、排球？
+				 -->
+				<input type="checkbox" name="like" value="basketball"/>篮球
+				<input type="checkbox" name="like" value="football" checked="checked"/>足球
+				<input type="checkbox" name="like" value="volleyball"/>排球
+			</td>
+		</tr>
+		<tr>
+			<td>城市:</td>
+			<td>
+				<select name="city">
+					<option value="bj">北京</option>
+					<option value="sh">上海</option>
+					<option selected="selected" value="gz">广州</option>
+					<option value="sz">深圳</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>验证码:</td>
+			<td>
+				<input type="text" name="verifycode"/>
+				<img width="80px" height="20px" src="imgs/vc.jpg"/>
+				<input type="button" value="换一个"/>
+			</td>
+		</tr>
+		<tr>
+			<td>自我描述:</td>
+			<td>
+				<textarea name="description" placeholder="请输入描述信息..." cols="30" rows="5"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td id="last-td" colspan="2">
+				<input type="submit"/>
+			</td>
+		</tr>
+	</table>
+</form>
+	
+
+
+
+
+</body>
+</html>
+

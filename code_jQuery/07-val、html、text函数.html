@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<style>
+	body{font-size: 18px;}
+	div{border:1px solid red;padding:10px;height:50px;}
+	span{margin:10px;border:1px solid blue;}
+	
+</style>
+<!-- 引入jQuery和引入一个JS文件代码一样-->
+<script src="js/jquery-1.4.2.js"></script>
+<script>
+	/* val()、text()函数、html()函数 */
+	$(function(){
+		//选中b1按钮,绑定点击事件,获取所有input元素的value值
+		$("#b1").click(function(){
+			/*$("input").each(function(){
+				var value1 = this.value;
+				var value2 = $(this).val();
+				console.log( value1+":"+value2 );
+			});*/
+			$("input[type='text']").val("张三丰");
+			
+		});
+		
+		//选中b2按钮,绑定点击事件,获取或设置div的所有内容
+		$("#b2").click(function(){
+			//1.获取div的所有内容
+			//var html = $("div").html();
+			//console.log( html );
+
+			//2.设置div内部的所有内容(覆盖)
+			var dateStr = new Date().toLocaleString();
+			$("div").html( "<span>这是一个span元素xxxx</span>" );
+			
+		});
+		//选中b3按钮,绑定点击事件
+		$("#b3").click(function(){
+			//1.获取div的内部的所有文本内容
+			//var text = $("div").text();
+			//console.log( text );
+
+			//2.设置div的文本内容(覆盖)
+			var dateStr = new Date().toLocaleString();
+			var text = $("div").text( "<span>这是一个span元素xxxx</span>" );
+		});
+	});
+	
+</script>
+
+</head>
+<body>
+	<input type="button" id="b1"
+		value="获取input的value值"/><hr/>
+	
+	<input type="text" />
+	<input type="password" />
+	<input type="radio" value="man"/>
+	<input type="checkbox" value="basketball"/>
+	<input type="button" value="这是一个按钮"/><hr/>
+	
+
+	<input type="button" id="b2"
+		value="获取元素的html内容"/>
+	<input type="button" id="b3" 
+		value="获取元素的文本内容"/><hr/>
+	
+	<div>
+		这是一个div元素
+		<span>这是div内部的span元素</span>
+	</div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE>
+<html>
+<head>
+<title>基本选择器练习</title>
+<meta charset="utf-8"/>
+<style type="text/css">
+	body{ font-family: "微软雅黑" }
+	div,span { width: 140px;height: 140px;margin: 20px;background: #9999CC;border: #000 1px solid;float: left;font-size: 17px;font-family: Roman;}
+	div.mini{width:60px;height:50px;background:#CC66FF;border:#000 1px solid;font-size:12px;font-family:Roman;}
+	div.mini01{height:50px;width:65px;background:pink;}
+	input{margin:5px 5px;}
+</style>
+
+<!-- 引入jquery函数库文件 -->
+<script src="js/jquery-1.4.2.js"></script>
+<script type="text/javascript">
+	/* 文档就绪事件函数(即在浏览器加载完最后一个标签后立即执行) */
+	$(function() {
+		/* ---------基本选择器练习--------- */
+		/* 1、选中b1按钮,为b1按钮绑定点击事件，点击b1按钮：
+		改变元素名为 div 的所有元素的背景色为 #FF69B4 */
+		$("#b1").click(function(){
+			$("div").css("background","#FF69B4");
+		});
+		
+		/* 2、选中b2按钮,为b2按钮绑定点击事件，点击b2按钮：
+		改变 id 为 one 的元素的背景色为 #9ACD32*/
+		$("#b2").click(function(){
+			$("#one").css({
+				"background":"#9ACD32",
+				"border":"2px solid red"
+			});
+		});
+
+		/* 3、选中b3按钮,为b3按钮绑定点击事件，点击b3按钮：
+		改变 class 为 mini 的所有元素的背景色为 #FF6347*/
+		$("#b3").click(function(){
+			$(".mini").css("background","#FF6347");
+		});
+
+		
+	});
+</script>
+</head>
+
+<body>
+	<!-- 按钮1 -->
+	<input type="button" onclick="fn1()" value=" 改变元素名为 div 的所有元素的背景色为 #FF69B4 " id="b1"/>
+	
+	<!-- 按钮2 -->
+	<input type="button" value=" 改变 id 为 one 的元素的背景色为 #9ACD32 " id="b2" />
+	<!-- 按钮3 -->
+	<input type="button" value=" 改变 class 为 mini 的所有元素的背景色为 pink " id="b3" />
+
+	<h1>点击按钮查看效果...</h1>
+
+	<div id="one">div: id为one</div>
+
+	<div id="two" class="mini">
+		div: id为two,class是 mini
+		<div class="mini"> class是 mini</div>
+	</div>
+
+	<div class="one">
+		div: class是 one
+		<div class="mini"> div: class是 mini</div>
+		<div class="mini"> div: class是 mini</div>
+	</div>
+	
+	<div class="one">
+		div: class是 one
+		<div class="mini01"> div: class是 mini01</div>
+		<div class="mini"> div: class是 mini</div>
+	</div>
+	
+	<div>div</div>
+
+	<span> span </span>
+	<span class="mini"> span: class是mini </span>
+</body>
+</html>
+
+
+

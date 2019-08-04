@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>table练习</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+	body{font-family: "微软雅黑"}
+	h2,h4{text-align: center;}
+	div#box1, div#box2 {text-align:center;}
+	table{margin: 0 auto;width: 70%;text-align: center;border-collapse:collapse;}
+	td, th{padding: 7px; width:20%;}
+	th{background-color: #DCDCDC;}
+</style>
+
+<!--引入jquery的js库-->
+<script src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+	/* 点击全选设置,员工所在的行全选或者全不选
+	全选复选框的选中状态要和所有复选框的选中状态保持一致！！
+	 */
+	function checkAll(){
+		//1.获取全选复选框的选中状态（checked）
+		var ischeck = $("#all").prop("checked");
+		console.log( ischeck );
+		//2.将状态设置给所有复选框（全选或全不选）
+		$("input[type='checkbox']").prop("checked", ischeck );
+	}
+
+	/* 选中所有普通复选框（除了全选以外的其他复选框），添加点击事件
+	 当点击每一个普通复选框时, 检查所有普通复选框是否全都选中了
+	 如果所有普通复选框全都选中, 此时要将全选复选框也选中
+	 否则, 就将全选复选框取消选中!!!
+	 */
+	$(function(){
+		$(".item").click(function(){
+			//>>获取所有被选中的普通复选框的个数
+			var checkedLen = $(".item:checked").length;
+			//>>获取所有普通复选框的个数
+			var itemLen = $(".item").length;
+			//如果所有普通复选全都选中了,就将全选选中
+			if( itemLen == checkedLen ){
+				//将全选选中
+				$("#all").prop("checked", true);
+			}else{
+				$("#all").prop("checked", false);
+			}
+		});
+	});
+	
+</script>
+</head>
+
+<body>
+	<h2>员工列表</h2>
+	<table border="1">
+		<tr>
+			<th><!--点击全选复选框，执行checkAll函数-->
+				<input onclick="checkAll()" type="checkbox" id="all"/>
+				
+			</th>
+			<th>ID</th>
+			<th>姓名</th>
+			<th>邮箱</th>
+			<th>工资</th>
+		</tr>
+		<tr>
+			<td>
+				<input class="item" type="checkbox"/>
+			</td>
+			<td>1</td>
+			<td>宋江</td>
+			<td>sj@163.com</td>
+			<td>12000</td>
+		</tr>
+		<tr>
+			<td>
+				<input class="item" type="checkbox"/>
+			</td>
+			<td>2</td>
+			<td>武松</td>
+			<td>ws@163.com</td>
+			<td>10500</td>
+		</tr>
+		<tr>
+			<td>
+				<input class="item" type="checkbox"/>
+			</td>
+			<td>3</td>
+			<td>孙二娘</td>
+			<td>sen@163.com</td>
+			<td>11000</td>
+		</tr>
+	</table>
+</body>
+</html>
+
+
+

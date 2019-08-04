@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<script>
+		/* 对象声明方式一： */
+		//声明一个函数
+		function Person(name,age){
+			this.name = name;
+			this.age = age;
+			this.sayHi = function(){
+				console.log(this.name+":"+this.age);
+			}
+		}
+		//通过new函数创建对象
+		var p1 = new Person("韩少云", 30);
+		console.log( p1.name );
+		console.log( p1.age );
+		p1.sayHi();
+		var p2 = new Person("马云", 32);
+		console.log( p2.name );
+		console.log( p2.age );
+		p2.sayHi();
+		
+		/* 对象声明方式二： */
+		//通过对象直接量声明对象
+		var p3 = {
+			"name" : "刘德华",
+			"age" : 18,
+			"sayHi" : function(){
+				console.log(this.name+":"+this.age);
+			}
+		}
+		console.log( p3.name );
+		console.log( p3.age );
+		p3.sayHi();
+		
+		
+	</script>
+
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+	<title>JS基础语法练习</title>
+	<meta charset="utf-8"/>
+	<style>body{padding:20px;font-size:20px;}</style>
+	<script>
+		/*
+		for(int i=begin;i<=end;i++){ }
+		*/
+		/* 1、声明一个函数fn2，在函数中实现：遍历指定的两个数值之间的整数，将是3的倍数的数值存入到一个数组中，并将数组返回 */
+		function fn2(begin, end){
+			//声明一个数组
+			var arr = [];
+			var j = 0;
+			for(var i=begin;i<=end;i++ ){
+				if(i%3==0){
+					arr[j] = i;
+					j++;
+				}
+			}
+			return arr;
+		}
+		/* 2、调用fn2函数, 获取1~100之间是3的倍数的数值组成的数组，将返回的数组中的元素遍历输出到网页上 */
+		var begin = prompt("获取x~y范围内的3的倍数的数值,请输入x初始值:");
+		begin = parseInt(begin);
+		var end = prompt("请输入y结束值:");
+		end = parseInt(end);
+		var arr = fn2(begin,end);
+		//将数组输出到网页上
+		document.write( arr );
+		
+	</script>
+</head>
+<body>
+	<h1>JS基础语法练习。。。</h1>
+</body>
+</html>

@@ -1,0 +1,8 @@
+p{
+	border:2px solid blue;
+	color:red;
+	/* 设置字体 */
+	font-family:"华文琥珀";
+	/* 设置首行缩进 */
+	text-indent:50px;
+}

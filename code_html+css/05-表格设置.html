@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8"/>
+		<!-- css样式 -->
+		<style>
+			table,td{
+				/* 设置边框 */
+				border:2px solid red;
+				/* 设置边框合并 */
+				border-collapse:collapse;
+			}
+			td{
+				/* 设置单元格边框和内容的距离 */
+				padding:5px;
+			}
+			table{
+				/* 设置表格的宽度 */
+				width:80%;
+				/* 设置表格的左右外边距自适应(居中)*/
+				margin-left:auto;
+				margin-right:auto;
+			}
+			h1{
+				/* 设置元素内文本的水平排列方式 */
+				text-align:center;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>表格的标题</h1>
+		<table>
+			<!-- 将1.1、1.2、1.3合并 
+				删除1.2、1.3，设置1.1横跨3列 -->
+			<tr>
+				<td colspan="3">11</td>
+				<td>14</td>
+			</tr>
+			<tr>
+				<!-- 将2.1和3.1合并, 删除3.1
+					设置2.1竖跨两行 -->
+				<td rowspan="2">21</td>
+				<td>22</td>
+				<td>23</td>
+				<td>24</td>
+			</tr>
+			<tr>
+				<td>32</td>
+				<td>33</td>
+				<td>34</td>
+			</tr>
+			<tr>
+				<td>41</td>
+				<td>42</td>
+				<td>43</td>
+				<td>44</td>
+			</tr>
+			
+			
+		</table>
+
+
+
+		
+
+
+
+
+
+
+		<br/><br/><br/><br/><br/><br/>
+		<br/><br/><br/><br/><br/><br/>
+		<br/><br/><br/><br/><br/><br/>
+		<br/><br/><br/><br/><br/><br/>
+	</body>
+</html>
+

@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>创建表格</title>
+
+<style type="text/css">
+	/* 为表格定义CSS样式 */
+	body{padding-left:15px;font-size:20px;}
+	table{ border:1px solid #0099FF; width:70%; border-collapse:collapse; }
+	table td{ border:#0099FF 1px solid; padding:10px 20px 3px 1px; }
+	input[type='text']{width:150px;height:20px;vertical-align:text-bottom;text-indent:5px;font-size:20px;}
+	input[type='button']{font-size:20px;}
+</style>
+
+<!-- 引入jquery函数库文件 -->
+<script src="js/jquery-1.4.2.js"></script>
+<script type="text/javascript">
+	//创建单行单列的表格
+	function createTable1(){
+		//1.创建table元素
+		var $table = $("<table></table>");
+		//2.创建tr元素
+		var $tr = $("<tr></tr>");
+		//3.创建td元素
+		var $td = $("<td>hello~</td>");
+		//4.将td添加到tr元素内部
+		$tr.append( $td );
+		//5.将tr添加到table元素内部
+		$table.append( $tr );
+		//6.将table添加到body元素内部
+		$("body").append( $table );
+		
+		//$("body").append("<table><tr><td>Hello TD...</td></tr></table>");
+	}
+
+	//创建单行6列的表格
+	//创建5行6列的表格
+	function createTable2(){
+		//1.创建table元素
+		var $table = $("<table></table>");
+		for(var j=0;j<5;j++){//循环5次，创建5个tr
+			//2.创建tr元素
+			var $tr = $("<tr></tr>");
+			for(var i=0;i<6;i++){//循环6次，创建6个td
+				//3.创建td元素
+				var $td = $("<td>hello~</td>");
+				//4.将td添加到tr元素内部
+				$tr.append( $td );
+			}
+			//5.将tr添加到table元素内部
+			$table.append( $tr );
+		}
+		//6.将table添加到body元素内部
+		$("body").append( $table );
+	}
+
+	//创建指定行和列的表格
+	function createTable3(){
+		//获取输入框元素，并获取输入框里面的值
+		//var rows1 = document.getElementById("rows").value;
+		var rows = $("#rows").val();
+		var cols = $("#cols").val();
+		//1.创建table元素
+		var $table = $("<table></table>");
+		for(var j=0;j<rows;j++){//循环5次，创建5个tr
+			//2.创建tr元素
+			var $tr = $("<tr></tr>");
+			for(var i=0;i<cols;i++){//循环6次，创建6个td
+				//3.创建td元素
+				var $td = $("<td>hello~</td>");
+				//4.将td添加到tr元素内部
+				$tr.append( $td );
+			}
+			//5.将tr添加到table元素内部
+			$table.append( $tr );
+		}
+		//6.将table添加到body元素内部
+		$("body").append( $table );
+	}
+</script>
+</head>
+<body>
+	<!-- 点击下列按钮创建单行单列表格 -->
+	<input type="button" value="创建单行单列表格" onclick="createTable1()" /><br/><br/>
+
+	<!-- 点击下列按钮创建5行6列表格 -->
+	<input type="button" value="创建表格(5行6列)" onclick="createTable2()" /><br/><br/>
+
+	<!-- 点击下列按钮创建指定行、指定列的表格 -->
+	<input type="button" value="创建表格（输入行数和列数）" onclick="createTable3()" /><br/>
+	行数：<input type="text" id="rows"/><br/>
+	列数：<input type="text" id="cols"/><br/><br/>
+
+	<!-- 将创建的表格添加到body内部(追加到最后) --><hr/>
+	
+	
+	
+</body>
+</html>

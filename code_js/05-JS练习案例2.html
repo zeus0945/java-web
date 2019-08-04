@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+	<title>JS练习案例2</title>
+	<meta charset="utf-8"/>
+	<style>
+		body{padding:20px;font-size:20px;}
+		#div1{width:30%;border:1px solid red;padding:5px;margin-bottom:20px;}
+	</style>
+	<script>
+		/* 1、点击div，将div的内容改为当前时间
+		执行顺序：只要用户点击div，就会触发onclick事件，事件触发会立即调用changeDiv函数，从而实现某些功能
+		 */
+		function changeDiv(){
+			//1.获取表示div元素的JS对象
+			var div = document.getElementById("div1");
+			//2.通过div的js对象调用innerHTML属性改变div的内容
+			div.innerHTML = new Date().toLocaleString();
+		}
+		
+		
+		/* 2、点击按钮，换一张图片 */
+		var flag = true;//默认是关灯
+		function changeImg(){
+			//1.获取表示img元素的js对象
+			var img = document.getElementById("img1");
+			if(flag){//true表示关灯,点击后开灯,将图片改为b02
+				//2.通过img元素的src属性值,实现换一张图片
+				img.src = "imgs/b02.gif";
+			}else{
+				//2.通过img元素的src属性值,实现换一张图片
+				img.src = "imgs/b01.gif";
+			}
+			flag = !flag;
+		}
+
+	</script>
+</head>
+<body>
+	<!-- onclick事件:点击之后立即触发 -->
+	<div id="div1" onclick="changeDiv()"
+		title="点我获取时间~">Hello，CGB1903~!
+	</div><hr/>
+	
+	<input type="button" value="开/关灯"
+		onclick="changeImg()" /> <br/><br/>
+	<img id="img1" src="imgs/b01.gif"/>
+	
+</body>
+</html>
