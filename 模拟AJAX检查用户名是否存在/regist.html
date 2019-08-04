@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<!-- 引入login.css文件 -->
+	<link rel="stylesheet" href="regist.css">
+
+	<!-- 引入jQuery的库文件 -->
+	<script type="text/javascript" src="jquery-1.4.2.js"></script>
+
+	<script type="text/javascript">
+		var users = []
+		/* 模拟实现AJAX检查用户名是否存在 */
+		function checkUsername(){
+			var username = document.getElementsByName("username")[0].value;
+			if(username == ""){
+				setMsg("用户名不能为空");
+				return;
+			}
+			if(users.indexOf(username) > -1){
+				setMsg("<img src='imgs/1.gif' >");
+				setTimeout(function(){
+					setMsg("用户名已存在");
+				} , 1000);
+			}else{
+				setMsg("<img src='imgs/1.gif' >");
+				setTimeout(function(){
+					setMsg("恭喜,用户名可以使用");
+				}, 1000);
+			}
+		}
+
+		/* 设置提示消息到id为err-msg的div中 */
+		function setMsg(msg){
+			$("#err-msg").html(msg);
+		}
+
+		/* 表单提交校验 */
+		function registUsername(){
+			var username = $("#username").val();
+			if(username != "" && users.indexOf(username) < 0){
+				users.push(username);
+				alert("注册成功");
+			}
+			return false;
+		}
+	</script>
+</head>
+<body>
+	<!-- header-头部 -->
+	<div id="header">
+		<img src="imgs/logo.jpg"/>
+		<span class="line"></span>
+		<span class="wel-login">欢迎注册</span>
+	</div>
+
+	<!-- main-主体 -->
+	<div id="main">
+		<img src="imgs/show.jpg"/>
+		<form action="#" method="POST" onsubmit="return registUsername()">
+			<h1>注册</h1>
+			<div id="err-msg"></div>
+			
+			<!-- 用户名输入框 -->
+			<input type="text" name="username" id="username"
+				 onblur="checkUsername()"
+				 onfocus="setMsg('')" />
+			<input type="password" name="password" id="password"/>
+			
+			<input type="submit" value="注 册"/>
+		</form>
+	</div>
+	
+	
+	<!-- footer-尾部 -->
+	<div id="footer">
+		关于我们 | 联系我们 | 人才招聘 | 商家入驻 | 营销中心 | 手机京淘 | 友情连接 | 销售联盟 | 京淘社区 | 京淘公益 | English Site<br/>
+		Copyright © 2004 - 2007 京淘jingtao.com 版权所有
+	</div>
+	
+</body>
+</html>
