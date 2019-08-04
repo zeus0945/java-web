@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+	<!-- 1.将User对象的创建交给spring容器
+			scope=singleton:单实例
+			scope=prototype:多实例
+	 -->
+	<bean id="user" 
+		scope="prototype"
+		class="com.tedu.pojo.User">
+		<!-- 通过setter方法给属性赋值 
+			name  setName
+			age   setAge
+			user.setName(韩少云);
+			user.stAge(30);
+		-->
+		<!-- <property name="name" value="韩少云" />
+		<property name="age" value="30" />
+		<property name="info" ref="userInfo" /> -->
+		<constructor-arg name="name" value="马云"/>
+		<constructor-arg name="age" value="35"/>
+		<constructor-arg name="info" ref="userInfo"/>
+		
+	</bean>
+	<!-- 将UserInfo对象的创建交给spring容器 -->
+	<bean id="userInfo" class="com.tedu.pojo.UserInfo"></bean>
+	
+	<!-- 2.将MySQLDao对象的创建交给spring容器 -->
+	<bean id="dao" class="com.tedu.dao.OracleDao"></bean>
+</beans>
+ 
